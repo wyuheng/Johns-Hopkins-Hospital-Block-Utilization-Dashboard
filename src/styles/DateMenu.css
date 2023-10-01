@@ -1,0 +1,17 @@
+.DateMenu{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    background-color: rgb(103, 155, 239);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.DateMenuButton{
+    height: 50px;
+    margin-right: 20px;
+    font-weight: bold;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background-color: black;
+}
