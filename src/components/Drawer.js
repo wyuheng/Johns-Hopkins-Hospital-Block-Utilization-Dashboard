@@ -2,14 +2,8 @@ import React, { useState } from 'react';
 import { Drawer, Button } from 'antd';
 import IntervalBar from './Interval';
 import TextDivider from './Divider';
-import {Divider} from 'antd';
 
 function MyComponent(props) {
-    
-    const showDrawer = () => {
-      props.setIsDrawerVisible(true);
-    };
-  
     const onClose = () => {
       props.setIsDrawerVisible(false);
     };
@@ -18,7 +12,7 @@ function MyComponent(props) {
           title: "Block Utilization Information of " + (props.dataOfTheDay != null ? props.dataOfTheDay.Date : null),
           placement:"right", // Set the placement (right, left, top, bottom)
           closable: false,
-          width : 1000,
+          width : '70vw',
           onClose : onClose,
           open : props.isDrawerVisible
     }
@@ -31,8 +25,8 @@ function MyComponent(props) {
       
       const ans = [];
       for (let i = 0; i < dataOfTheDay.surgeries.length; ++i) {
-        ans.push(<div className = "DrawerBlock">
-          <TextDivider surgery = {dataOfTheDay.surgeries[i]} index = {i}/>
+        ans.push(<div className = "DrawerBlock" key = {i}>
+          <TextDivider surgery = {dataOfTheDay.surgeries[i]} index = {i} />
         </div>);
       }
       return ans;

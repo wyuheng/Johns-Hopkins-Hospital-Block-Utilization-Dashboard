@@ -3,11 +3,12 @@ import { Column } from '@ant-design/plots';
 import { getData } from '../util';
 
 
-
+const paletteSemanticRed = '#F4664A';
+const brandColor = '#5B8FF9';
 
 
 const BarChart = (props) => {
-  const [data, setData] = useState(getData(7));
+  const [dataMap, setDataMap] = useState(null);
 
     useEffect(() => {
         asyncFetch();
@@ -18,8 +19,12 @@ const BarChart = (props) => {
   const asyncFetch = () => {
     fetch('https://gw.alipayobjects.com/os/bmw-prod/be63e0a2-d2be-4c45-97fd-c00f752a66d4.json')
       .then((response) => response.json())
-      .then((json) => setData(getData(props.showDays)))
-      .catch((error) => {
+      .then((json) => {
+        const res = getData(props.showDays);
+        setDataMap(res[1]);
+        props.setData(res[0]);
+        
+      }).catch((error) => {
         console.log('fetch data failed', error);
       });
     
@@ -36,8 +41,9 @@ const BarChart = (props) => {
     });
   };
 
+
   const config = {
-    data,
+    data: props.data,
     xField: 'Date',
     yField: 'Utilization_Rate',
     xAxis: {
@@ -45,13 +51,29 @@ const BarChart = (props) => {
         autoRotate: false,
       },
     },
+    label: {
+      content: (originData) => {
+        const val = parseFloat(originData.Utilization_Rate);
+        return (val * 100).toFixed(1) + '%';
+      },
+      offset: 10,
+    },
+    color: ({ Date }) => {
+      if (dataMap.get(Date).Utilization_Rate < 0.4)
+        return paletteSemanticRed;
+      return brandColor;
+    },
     scrollbar: {
       type: 'horizontal',
     }
   };
 
-
-  return <Column className='BarChart' {...config} onReady = {columnClick}/>;
+  //future step: show the loading page
+  return( 
+    dataMap === null || props.data === null ?
+    null :
+    <Column className='BarChart' {...config} onReady = {columnClick}/>
+  );
 };
 
 export default BarChart;

@@ -38,7 +38,7 @@ const generateData = () => {
         surgeriesList = Math.random() < 0.1 ? [] : surgeriesList;
 
         ans.push({
-            Date: "12/" + i + "/2023",
+            Date: "12/" + (i + 1),
             interval: blockLen,
             surgeries: surgeriesList,
             Utilization_Rate: parseFloat(calculateUtilization(surgeriesList, blockLen).toFixed(3)),
@@ -50,13 +50,18 @@ const generateData = () => {
 const sampleData = generateData();
 
 const getData = (days) => {
-    return sampleData.slice(sampleData.length - days, sampleData.length);
+    const data = sampleData.slice(sampleData.length - days, sampleData.length);
+    const dataMap = new Map();
+    for (const entry of data) {
+        dataMap.set(entry.Date, entry);
+    }
+    console.log("Map in getData:" + dataMap);
+    return [data, dataMap];
 }
 
-const typeList = ['Prefix Time', 'Set Up Time', 'Case Time', 'Turnover Time'];
+const typeList = ['Prefix Time', 'Set Up Time', 'Case Time', 'Clean Up Time'];
 
 const processDataToStackedBar = (dataOfTheDay) => {
-    console.log(dataOfTheDay);
     const surgeriesList = dataOfTheDay.surgeries;
     const ans = [];
     for (let t = 0; t < typeList.length; ++t) {
@@ -72,5 +77,25 @@ const processDataToStackedBar = (dataOfTheDay) => {
     return ans;
 }
 
+const processDataToPie = (generalReport) => {
+    
+    const ans = [];
+    if (generalReport === null || generalReport === undefined)
+        return;
+    ans.push({
+        type : 'Block Time Used',
+        value : parseFloat((generalReport.totalCaseTime / 60).toFixed(1))
+    });
+    ans.push({
+        type : 'Time Remained',
+        value : parseFloat(((generalReport.totalBlockTime - generalReport.totalCaseTime) / 60).toFixed(1)),
+    })
 
-export {getData, processDataToStackedBar}
+    return ans;
+}
+
+const checkPassword = (username, password) => {
+    return true;
+}
+
+export {getData, processDataToStackedBar, checkPassword, processDataToPie}

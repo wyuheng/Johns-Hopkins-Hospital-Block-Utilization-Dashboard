@@ -6,16 +6,19 @@
   
   .App-header {
     display: flex;
+    
     align-items: center;
+    justify-content: space-between;
     height: 60px;
-    width: 100vw;
+    width:100%;
+
     padding-left: 3-px;
     background-color: #142f76;
     flex-direction: row;
   }
   
   .title {
-    font-size: 200%;
+    font-size: 150%;
     font-weight: bold;
     margin: 20px;
     color: rgb(254, 253, 252);

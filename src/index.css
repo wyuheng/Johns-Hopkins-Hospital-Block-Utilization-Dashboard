@@ -3,22 +3,15 @@
 @import './styles/BarChart.css';
 @import './styles/DateMenu.css';
 @import './styles/Drawer.css';
-@import 'antd/dist/antd.css'; 
-
-
-
-#header {
-  height: 30px;
-  background-color: #282c34;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-
-}
+@import './styles/Home.css';
+@import './styles/Login.css';
+@import './styles/App.css';
+@import './styles/Sider.css';
+@import 'antd/dist/antd.css';
+@import './styles/RingGraph.css';
+@import './styles/ReportBoard.css';
 
 body{
-    background-image: url('./assets/luxa.org-opacity-changed-JHH.jpg'); /* Replace with the path to your image */
-    background-size: cover; /* Adjust as needed */
-    background-repeat: no-repeat; /* Prevent repeating the image */
     
+    width: 100vw;
 }

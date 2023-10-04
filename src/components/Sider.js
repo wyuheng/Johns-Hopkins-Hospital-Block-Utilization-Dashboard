@@ -6,6 +6,7 @@ const { Header, Content, Footer, Sider } = Layout;
 const SiderMenu = () => {
 
     return (
+        <div className = "Sider">
         <Sider
             breakpoint="lg"
             collapsedWidth="0"
@@ -30,6 +31,7 @@ const SiderMenu = () => {
             )}
             />
         </Sider>
+       </div>
     );
 }
 

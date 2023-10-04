@@ -1,0 +1,13 @@
+.App {
+    
+    display: flex;
+    flex-direction : column; 
+    align-content: flex-start;
+    min-width: 100vw;
+    min-height: 100vh;
+    
+
+    background-image: url('../assets/luxa.org-opacity-changed-JHH.jpg'); /* Replace with the path to your image */
+    background-size: cover; /* Adjust as needed */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+}
