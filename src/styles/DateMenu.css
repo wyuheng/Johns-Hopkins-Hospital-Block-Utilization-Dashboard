@@ -1,8 +1,9 @@
 .DateMenu{
     height: 50px;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    flex-direction: row-reverse;
+    flex-direction: row;
     background-color: rgb(103, 155, 239);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -14,4 +15,11 @@
     font-weight: bold;
     font-family: 'Times New Roman', Times, serif;
     background-color: black;
+}
+
+.MyCalendar {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-grow:5;
+  
 }

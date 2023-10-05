@@ -12,15 +12,18 @@ const BarChart = (props) => {
 
     useEffect(() => {
         asyncFetch();
-    }, [props.showDays]);
+    }, [props.showDays, props.datePicked]);
 
-
+  
+    useEffect(()=>{
+      console.log(props.datePicked);
+    }, [props.datePicked]);
 
   const asyncFetch = () => {
     fetch('https://gw.alipayobjects.com/os/bmw-prod/be63e0a2-d2be-4c45-97fd-c00f752a66d4.json')
       .then((response) => response.json())
       .then((json) => {
-        const res = getData(props.showDays);
+        const res = getData(props.datePicked, props.showDays);
         setDataMap(res[1]);
         props.setData(res[0]);
         

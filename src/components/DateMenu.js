@@ -1,4 +1,6 @@
 import React from 'react';
+import MyCalendar from './MyCalendar';
+import { calculateDate } from '../dataGenerate';
 import { Button, Dropdown, Space } from 'antd';
 const items = [
   {
@@ -23,13 +25,29 @@ const items = [
 
 let setShowDays = null;
 
+const toDateStr = (datePicked) => {
+  return datePicked.month + "/" + datePicked.day + "/" + datePicked.year;
+}
+
 const DateMenu = (props) => {
   setShowDays = props.setShowDays;
 
   return (
   <div className='DateMenu'>
+    <h3 style = {{color : 'white',  paddingLeft : '20px', paddingRight : '20px'}}> 
+      Block Utilization Report: 
+    </h3>
+    <h1 style = {{fontFamily : "'Times New Roman'", color : 'white', display : 'flex', alignSelf : "baseline", fontWeight : "bold"}}> 
+      {toDateStr(calculateDate(props.datePicked, props.showDays))} - {toDateStr(props.datePicked) }
+    </h1>
+
+    <div className = "MyCalendar">
+      <MyCalendar  setDatePicked = {props.setDatePicked}/>
+    </div>
+
     <Space direction="vertical">
       <Space wrap>
+
         <Dropdown
           menu={{
             items,
@@ -40,6 +58,8 @@ const DateMenu = (props) => {
         </Dropdown>
       </Space>
     </Space>
+
+    
   </div>
 )};
 export default DateMenu;

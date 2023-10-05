@@ -23,6 +23,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
+    
+    font-size: 1.5em; 
 }
 
 .NumberDisplayed {
@@ -32,10 +34,8 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    
-}
 
-.AnimatedDivison {
-    font-family: 'Times New Roman', Times, serif
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
     
 }

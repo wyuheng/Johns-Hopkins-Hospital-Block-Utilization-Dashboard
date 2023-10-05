@@ -7,12 +7,20 @@ import { useEffect, useState } from 'react';
 
 const Main = (props) => {
     const [showDays, setShowDays] = useState(7);
+    const [datePicked, setDatePicked] = useState({
+        year: 2023,
+        month: 10,
+        day: 4
+    });
     const [data, setData] = useState(null);
     const [generalReport, setGeneralReport] = useState(null);
+
 
     const config = {
         showDays: showDays,
         setShowDays: setShowDays,
+        datePicked: datePicked,
+        setDatePicked: setDatePicked,
         isDrawerVisible: props.isDrawerVisible,
         setIsDrawerVisible: props.setIsDrawerVisible,
         setDataOfTheDay: props.setDataOfTheDay,
@@ -41,15 +49,13 @@ const Main = (props) => {
             utilization : totalCaseTime / totalBlockTime,
         }
         setGeneralReport(report);
-
     }, [data]);
-
-
 
     return (
 
         <div className= "Main">
             <DateMenu {...config}/>
+           
             <BarChart {...config}/>
             <div className = "Report">
                 <RingGraph generalReport = {generalReport}/>
