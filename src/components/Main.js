@@ -12,7 +12,7 @@ const Main = (props) => {
         month: 10,
         day: 4
     });
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([]);
     const [generalReport, setGeneralReport] = useState(null);
 
 
@@ -55,11 +55,13 @@ const Main = (props) => {
 
         <div className= "Main">
             <DateMenu {...config}/>
-           
-            <BarChart {...config}/>
-            <div className = "Report">
-                <RingGraph generalReport = {generalReport}/>
-                <ReportBoard generalReport = {generalReport}/>
+            
+            <div>
+                <BarChart {...config}/>
+                <div className = "Report">
+                    <RingGraph generalReport = {generalReport}/>
+                    <ReportBoard generalReport = {generalReport}/>
+                </div>
             </div>
         </div>
     );

@@ -2,6 +2,30 @@ const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 const startingYear = 2020;
 
+const firstNames = [
+    'John', 'Jane', 'Michael', 'Emily', 'William', 'Olivia', 'David', 'Sophia',
+    'James', 'Emma', 'Robert', 'Ava', 'Daniel', 'Mia', 'Joseph', 'Isabella',
+    'Matthew', 'Charlotte', 'Christopher', 'Amelia', 'Andrew', 'Grace', 'Ethan',
+    'Chloe', 'Alex', 'Lucas', 'Lily', 'Benjamin', 'Ella', 'Samuel', 'Aiden',
+    'Henry', 'Abigail', 'Liam', 'Nora', 'Daniel', 'Harper', 'Alexander', 'Mila',
+    'Nicholas', 'Scarlett', 'Jacob', 'Evelyn', 'William', 'Zoe', 'Aiden', 'Hannah'
+  ];
+  
+  const lastNames = [
+    'Smith', 'Johnson', 'Brown', 'Taylor', 'Anderson', 'Wilson', 'Davis', 'Miller',
+    'Jones', 'Williams', 'Moore', 'Martin', 'Lee', 'Perez', 'Thompson', 'White',
+    'Harris', 'Clark', 'Lewis', 'Young', 'Walker', 'Hall', 'Allen', 'King', 'Wright'
+  ];
+  
+  function generateRandomFullName() {
+    const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+    const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+    
+    return `${randomFirstName} ${randomLastName}`;
+  }
+
+  
+
 
 const generateAllData = (startingYear, yearNum) => {
     const ans = [];
@@ -23,7 +47,7 @@ const generateSurgery = (currTime, totalTime) => {
     const setUpInterval = [startTime, startTime + setUpTime];
     const caseInterval = [setUpInterval[1], setUpInterval[1] + caseTime];
     const turnoverInterval = [caseInterval[1], caseInterval[1] + turnoverTime];
-    return [setUpInterval, caseInterval, turnoverInterval];
+    return [setUpInterval, caseInterval, turnoverInterval, generateRandomFullName()];
 }
 
 const calculateUtilization = (surgeriesList, interval) => {
@@ -91,8 +115,16 @@ const calculateDate = (datePicked, daysToShow) => {
     return shallowCopy;
 }
 
+//assume each block starts at 8
+const calculateTime = (prefixTime) => {
+    
+    const h = 8 + Math.floor(prefixTime / 60), t = prefixTime % 60
+    const timeStr = (h < 10 ? "0" : "") + h + ":" + (t < 10 ? "0" : "") + t;
+    console.log("prefixTime:" + timeStr);
+    return timeStr;
+}
 
 
 const allData = generateAllData(startingYear, 4);
 
-export {allData, getIndexOfData, calculateDate};
+export {allData, getIndexOfData, calculateDate, generateRandomFullName, calculateTime};

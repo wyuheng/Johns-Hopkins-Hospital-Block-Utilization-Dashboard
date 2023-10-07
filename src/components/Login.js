@@ -2,19 +2,25 @@ import React from 'react';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input, message } from 'antd';
 import { checkPassword } from '../util';
+import { Navigate } from 'react-router-dom';
 
 const Login = (props) => {
   const onFinish = (values) => {
     console.log('Received values of form: ', values);
     
-    
-    if (checkPassword(values.username, values.password)) {
-        
+    new Promise((resolve, reject) => {
+        if (checkPassword(values.username, values.password)) {
+            resolve();
+        } else
+            throw new Error("Login failed");
+    }).then(() => {
         message.success("Login succeed! ");
         props.setUsername(values.username);
         props.setIsLogin(true);
         props.navigate("/");
-    }
+    }).catch(() => {
+        message.error("Login failed");
+    }); 
   };
 
   return (
@@ -67,7 +73,7 @@ const Login = (props) => {
             <Button type="primary" htmlType="submit" className="login-form-button">
             Log in
             </Button>
-            Or <a href="">register now!</a>
+            Or <div className ="registerLink" onClick={()=>{props.navigate('/register')}}>register now!</div>
         </Form.Item>
         </Form>
     </div>

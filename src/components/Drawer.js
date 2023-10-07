@@ -17,12 +17,10 @@ function MyComponent(props) {
           open : props.isDrawerVisible
     }
 
-    const getDrawBlock = (dataOfTheDay) => {
-      
+    const getDrawerBlock = (dataOfTheDay) => {    
       if (dataOfTheDay === null)
         return null;
-      console.log("Get DrawBlock");
-      
+  
       const ans = [];
       for (let i = 0; i < dataOfTheDay.surgeries.length; ++i) {
         ans.push(<div className = "DrawerBlock" key = {i}>
@@ -39,7 +37,7 @@ function MyComponent(props) {
             {...config}
         >
           <IntervalBar dataOfTheDay = {props.dataOfTheDay}/>
-          {props.isDrawerVisible ? getDrawBlock(props.dataOfTheDay) : null}
+          {props.isDrawerVisible ? getDrawerBlock(props.dataOfTheDay) : null}
         </Drawer>
       </div>
     );

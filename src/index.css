@@ -9,6 +9,7 @@
 @import './styles/Sider.css';
 @import 'antd/dist/antd.css';
 @import './styles/RingGraph.css';
+@import './styles/register.css';
 @import './styles/ReportBoard.css';
 
 body{

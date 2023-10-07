@@ -47,8 +47,22 @@ const processDataToPie = (generalReport) => {
     return ans;
 }
 
+
+const userMap = new Map();
+
 const checkPassword = (username, password) => {
-    return true;
+    return userMap.get(username) === password;
 }
 
-export {getData, processDataToStackedBar, checkPassword, processDataToPie}
+const setPassword = (username, password) => {
+    console.log("set password:" + username + " " + password);
+    
+    if (userMap.has(username)) {
+        console.log("User existed!");
+        throw new Error("User existed!");
+    }
+    userMap.set(username, password);
+    console.log(userMap);
+}
+
+export {getData, processDataToStackedBar, checkPassword, processDataToPie, setPassword}

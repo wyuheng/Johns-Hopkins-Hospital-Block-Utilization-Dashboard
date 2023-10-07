@@ -1,16 +1,16 @@
-.Login {
-
+.Register {
+    
+    background-color: rgba(166, 202, 246, 0.7);
 
     margin-top: 10vh;
     padding-top: 5vh;
-    padding-left : 5vw;
-    padding-right: 5vw;
+
     width: 30vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background-color: rgba(166, 202, 246, 0.7);
+
+    
 
     border-radius: 10px;
     border-width: 10px;
@@ -21,9 +21,10 @@
     align-self: center;
 }
 
-.registerLink{
+.loginLink{
     
     color: rgb(56, 146, 255);
     cursor: pointer;
 
 }
+
