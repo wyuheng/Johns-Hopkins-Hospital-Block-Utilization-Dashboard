@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Johns Hopkins Hospital-Block Utilization Dashboard
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
