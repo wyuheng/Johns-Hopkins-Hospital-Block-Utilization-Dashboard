@@ -1,5 +1,7 @@
 # Johns Hopkins Hospital-Block Utilization Dashboard
 
+In the hospital context, a block is a designated timeframe during which a surgeon has the right to use an operating room. Currently, in the orthopedics department of the Johns Hopkins Hospital, surgeons' block utilization rates are under-reported, which can negatively influence the revenue generation of the department. To fix this problem, our consulting team offered a few recommendations, one of which was to design a dashboard for the surgeons to audit their real-time utilization situations.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
