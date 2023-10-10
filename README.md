@@ -13,5 +13,5 @@ As part of our consulting team's efforts to address this problem, we proposed se
 
 The dashboard is designed to demonstrate which features can help surgeons have a better understanding of their utilization situations. Therefore, no functions have been bonded to the left side menu.
 
-###The simulation data from 2020-2023 has been generated.
-###This project has been deployed on [dashboard demo](https://v1.d22kn000tfs6lo.amplifyapp.com/).
+### The simulation data from 2020-2023 has been generated.
+### This project has been deployed on [dashboard demo](https://v1.d22kn000tfs6lo.amplifyapp.com/).
